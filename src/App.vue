@@ -1,20 +1,37 @@
 <template>
   <v-app>
-    <v-toolbar>
+    <v-navigation-drawer temporary
+      v-model="sideNav">
+      <v-list>
+        <v-list-tile v-for="{title, uri, icon} in navigation"
+          :to="uri"
+          :key="uri">
+          <v-list-tile-action>
+            <v-icon>{{icon}}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>{{title}}</v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar dark
+      class="primary">
+      <v-toolbar-side-icon @click.stop="sideNav = !sideNav"
+        class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
-        Hello
+        <router-link to="/" tag="span" style="cursor: pointer">
+           Tools
+        </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
-
+      <v-toolbar-items class="hidden-xs-only">
         <v-btn flat
           v-for="{title, uri, icon} in navigation"
           :to="uri"
           :key="uri">
-          <v-icon left>{{icon}}</v-icon>
+          <v-icon left
+            dark>{{icon}}</v-icon>
           {{title}}
         </v-btn>
-
       </v-toolbar-items>
     </v-toolbar>
     <main>
@@ -27,6 +44,7 @@
 export default {
   data () {
     return {
+      sideNav: false,
       navigation: [
         { title: 'Broz', uri: '/broz', icon: 'search' },
         { title: 'Fox', uri: '/fox', icon: 'favorite' },
