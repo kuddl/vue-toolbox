@@ -49,22 +49,23 @@
 <script>
 export default {
   data () {
+    const images = [
+      {
+        src: 'https://vuetifyjs.com/static/doc-images/carousel/squirrel.jpg'
+      },
+      {
+        src: 'https://vuetifyjs.com/static/doc-images/carousel/sky.jpg'
+      },
+      {
+        src: 'https://vuetifyjs.com/static/doc-images/carousel/bird.jpg'
+      },
+      {
+        src: 'https://vuetifyjs.com/static/doc-images/carousel/planet.jpg'
+      }
+    ]
     return {
       action: 'stop',
-      items: [
-        {
-          src: 'https://vuetifyjs.com/static/doc-images/carousel/squirrel.jpg'
-        },
-        {
-          src: 'https://vuetifyjs.com/static/doc-images/carousel/sky.jpg'
-        },
-        {
-          src: 'https://vuetifyjs.com/static/doc-images/carousel/bird.jpg'
-        },
-        {
-          src: 'https://vuetifyjs.com/static/doc-images/carousel/planet.jpg'
-        }
-      ]
+      items: images
     }
   },
   methods: {
