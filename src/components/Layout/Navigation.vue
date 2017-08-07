@@ -3,11 +3,12 @@
     <v-navigation-drawer temporary
       v-model="sideNav">
       <v-list>
-        <v-list-tile to="/" >
+        <v-list-tile to="/">
           <v-list-tile-content class="text-xs-center subheading">Home</v-list-tile-content>
         </v-list-tile>
         <v-divider></v-divider>
         <v-list-tile v-for="{title, uri, icon} in navigation"
+
           :to="uri"
           :key="uri">
           <v-list-tile-action>
@@ -24,9 +25,7 @@
       <v-toolbar-title>
         <router-link to="/"
           tag="span"
-          style="cursor: pointer">
-          Tools
-        </router-link>
+          style="cursor: pointer"> Tools </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
@@ -35,9 +34,7 @@
           :to="uri"
           :key="uri">
           <v-icon left
-            dark>{{icon}}</v-icon>
-          {{title}}
-        </v-btn>
+            dark>{{icon}}</v-icon> {{title}} </v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </div>
