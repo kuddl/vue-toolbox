@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Broz from '@/components/Broz/Broz.vue'
 import Fox from '@/components/Fox/Fox.vue'
 import SignIn from '@/components/SignIn/SignIn.vue'
+import Register from '@/components/Register/Register.vue'
 
 Vue.use(Router)
 
@@ -25,9 +26,14 @@ export default new Router({
       component: Fox
     },
     {
-      path: '/signin',
+      path: '/sign_in',
       name: 'SignIn',
       component: SignIn
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     }
   ],
   mode: 'history'

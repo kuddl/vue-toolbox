@@ -1,5 +1,3 @@
 <template>
-    <main>
-        This is SignIn
-    </main>
+  <main> This is SignIn </main>
 </template>

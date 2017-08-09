@@ -41,15 +41,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
+  computed: {
+    ...mapGetters([
+      'navigation'
+    ])
+  },
+
   data () {
     return {
-      sideNav: false,
-      navigation: [
-        { title: 'Broz', uri: '/broz', icon: 'search' },
-        { title: 'Fox', uri: '/fox', icon: 'favorite' },
-        { title: 'Sign In', uri: '/signin', icon: 'more_vert' }
-      ]
+      sideNav: false
     }
   }
 }
