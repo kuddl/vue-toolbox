@@ -8,7 +8,7 @@ import User from './modules/User'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
-  strict: process.env.NODE_ENV !== 'production',
+  // strict: process.env.NODE_ENV !== 'production',
   modules: {
     navigation: Navigation,
     meetups: Meetups,

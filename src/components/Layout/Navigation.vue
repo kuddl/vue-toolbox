@@ -7,7 +7,7 @@
           <v-list-tile-content class="text-xs-center subheading">Home</v-list-tile-content>
         </v-list-tile>
         <v-divider></v-divider>
-        <v-list-tile v-for="{title, uri, icon} in navigation"
+        <v-list-tile v-for="{title, uri, icon} in filteredNavigation"
 
           :to="uri"
           :key="uri">
@@ -30,7 +30,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn flat
-          v-for="{title, uri, icon} in navigation"
+          v-for="{title, uri, icon} in filteredNavigation"
           :to="uri"
           :key="uri">
           <v-icon left
@@ -46,10 +46,16 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'navigation'
-    ])
+      'navigation',
+      'user'
+    ]),
+    userIsAuthenticated () {
+      return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+    },
+    filteredNavigation () {
+      return this.navigation.filter(element => element.showOnLoggedIn && this.userIsAuthenticated)
+    }
   },
-
   data () {
     return {
       sideNav: false
