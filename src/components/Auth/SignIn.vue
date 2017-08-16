@@ -22,7 +22,6 @@
                     <v-text-field name="email"
                       label="Mail"
                       id="email"
-                      value="ts1@example.com"
                       v-model="email"
                       type="email"
                       required></v-text-field>
@@ -40,7 +39,14 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs12>
-                    <v-btn type="submit">Sign in</v-btn>
+                    <v-btn type="submit"
+                      :loading="loading"
+                      :disabled="loading"> Sign in
+                      <span slot="loader"
+                        class="custom-loader">
+                        <v-icon light>cached</v-icon>
+                      </span>
+                    </v-btn>
                   </v-flex>
                 </v-layout>
               </form>
@@ -59,8 +65,8 @@ export default {
   },
   data () {
     return {
-      email: '',
-      password: ''
+      email: 'ts@example.com',
+      password: 'ts@example.com'
     }
   },
   computed: {
@@ -69,6 +75,10 @@ export default {
     },
     error () {
       return this.$store.getters.error
+    },
+    loading () {
+      // return true
+      return this.$store.getters.loading
     }
   },
   watch: {
@@ -88,3 +98,8 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>
+
