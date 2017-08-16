@@ -3,13 +3,15 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import App from './App'
 import router from './router'
+import AlertCmp from './components/Shared/Alert.vue'
 import { store } from './store'
 
-Vue.use(Vuetify)
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+Vue.use(Vuetify)
+Vue.component('alert-box', AlertCmp)
 
+/* eslint-disable no-new */
 var vm = new Vue({
   el: '#app',
   router,
@@ -31,7 +33,7 @@ var vm = new Vue({
         }
         vm.$store.dispatch('setUser', newUser)
       } else {
-        vm.$router.push('/sign_in')
+        // vm.$router.push('/sign_in')
       }
     })
   }

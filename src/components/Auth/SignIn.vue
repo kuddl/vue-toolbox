@@ -1,5 +1,14 @@
 <template>
   <v-container>
+    <v-layout row
+      v-if="error">
+      <v-flex xs12
+        sm6
+        offset-sm3>
+        <alert-box @dismissed="onDismissed"
+          :text="error.message"></alert-box>
+      </v-flex>
+    </v-layout>
     <v-layout row>
       <v-flex xs12
         sm6
@@ -13,6 +22,7 @@
                     <v-text-field name="email"
                       label="Mail"
                       id="email"
+                      value="ts1@example.com"
                       v-model="email"
                       type="email"
                       required></v-text-field>
@@ -44,6 +54,9 @@
 
 <script>
 export default {
+  created () {
+    this.$store.dispatch('clearError')
+  },
   data () {
     return {
       email: '',
@@ -53,6 +66,9 @@ export default {
   computed: {
     user () {
       return this.$store.getters.user
+    },
+    error () {
+      return this.$store.getters.error
     }
   },
   watch: {
@@ -65,6 +81,9 @@ export default {
   methods: {
     onSignin () {
       this.$store.dispatch('signUserIn', { email: this.email, password: this.password })
+    },
+    onDismissed () {
+      this.$store.dispatch('clearError')
     }
   }
 }

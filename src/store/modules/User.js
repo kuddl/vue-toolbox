@@ -13,6 +13,8 @@ const actions = {
     commit('setUser', payload)
   },
   signUserUp ({ commit }, payload) {
+    commit('clearError')
+    commit('setLoading', true)
     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
       .then(
       user => {
@@ -20,16 +22,21 @@ const actions = {
           id: user.uid,
           registeredMeetups: []
         }
+        commit('setLoading', false)
         commit('setUser', newUser)
       }
       )
       .catch(
       error => {
+        commit('setLoading', false)
+        commit('setError', error)
         console.log(error)
       }
       )
   },
   signUserIn ({ commit }, payload) {
+    commit('clearError')
+    commit('setLoading', true)
     firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
       .then(
       user => {
@@ -37,9 +44,21 @@ const actions = {
           id: user.uid,
           registeredMeetups: []
         }
+        commit('setLoading', false)
         commit('setUser', newUser)
       }
       )
+      .catch(
+      error => {
+        commit('setLoading', false)
+        commit('setError', error)
+        console.log(error)
+      }
+      )
+  },
+  signUserOut ({ commit }) {
+    firebase.auth().signOut()
+      .then(() => commit('setUser', null))
       .catch(
       error => {
         console.log(error)

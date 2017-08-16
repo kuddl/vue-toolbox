@@ -53,7 +53,16 @@ export default {
       return this.$store.getters.user !== null && this.$store.getters.user !== undefined
     },
     filteredNavigation () {
-      return this.navigation.filter(element => element.showOnLoggedIn && this.userIsAuthenticated)
+      return this.navigation.filter(element => {
+        if (element.hideOnLoggedIn === true && this.userIsAuthenticated) {
+          return false
+        } else if (element.hideOnLoggedIn === false && !this.userIsAuthenticated) {
+          return false
+        } else {
+          return true
+        }
+      }
+      )
     }
   },
   data () {

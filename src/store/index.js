@@ -13,5 +13,33 @@ export const store = new Vuex.Store({
     navigation: Navigation,
     meetups: Meetups,
     user: User
+  },
+  state: {
+    error: null,
+    loading: null
+  },
+  getters: {
+    error (state) {
+      return state.error
+    },
+    loading (state) {
+      return state.loading
+    }
+  },
+  actions: {
+    clearError ({ commit }) {
+      commit('clearError')
+    }
+  },
+  mutations: {
+    setError (state, payload) {
+      state.error = payload
+    },
+    setLoading (state, payload) {
+      state.loading = payload
+    },
+    clearError (state) {
+      state.error = null
+    }
   }
 })
