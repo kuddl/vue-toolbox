@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: {
@@ -62,7 +62,7 @@ export default {
       'user'
     ]),
     userIsAuthenticated () {
-      return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+      return this.user !== null && this.user !== undefined
     },
     filteredNavigation () {
       return this.navigation.filter(element => {
@@ -78,9 +78,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['logoutUser']),
     onLogout () {
-      console.log('logout')
-      this.$store.dispatch('logoutUser')
+      this.logoutUser()
     }
   },
   data () {
