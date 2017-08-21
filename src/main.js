@@ -34,10 +34,9 @@ var vm = new Vue({
     })
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        const newUser = {
+        vm.$store.dispatch('autoLogin', {
           id: user.uid
-        }
-        vm.$store.dispatch('setUser', newUser)
+        })
       } else {
         // vm.$router.push('/sign_in')
       }

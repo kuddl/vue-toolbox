@@ -12,6 +12,9 @@ const actions = {
   setUser ({ commit }, payload) {
     commit('setUser', payload)
   },
+  autoLogin ({ commit }, payload) {
+    commit('setUser', payload)
+  },
   signUserUp ({ commit }, payload) {
     commit('clearError')
     commit('setLoading', true)
@@ -56,7 +59,7 @@ const actions = {
       }
       )
   },
-  signUserOut ({ commit }) {
+  logoutUser ({ commit }) {
     firebase.auth().signOut()
       .then(() => commit('setUser', null))
       .catch(
