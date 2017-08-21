@@ -4,12 +4,18 @@ import Vuetify from 'vuetify'
 import App from './App'
 import router from './router'
 import AlertCmp from './components/Shared/Alert.vue'
+import CfdCmp from './components/Shared/cfd_chart'
+import DateFilter from './filters/date'
 import { store } from './store'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
+// Global components
 Vue.component('alert-box', AlertCmp)
+Vue.component('line-chart', CfdCmp)
+// Global filter
+Vue.filter('date', DateFilter)
 
 /* eslint-disable no-new */
 var vm = new Vue({
