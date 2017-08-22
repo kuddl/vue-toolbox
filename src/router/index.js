@@ -5,7 +5,7 @@ import Broz from '@/components/Broz/Broz.vue'
 import Fox from '@/components/Fox/Fox.vue'
 import SignIn from '@/components/Auth/SignIn.vue'
 import Register from '@/components/Auth/Register.vue'
-// import { store } from '@/store'
+import AuthGuard from './auth_guard'
 
 Vue.use(Router)
 
@@ -19,7 +19,8 @@ const router = new Router({
     {
       path: '/broz',
       name: 'Broz',
-      component: Broz
+      component: Broz,
+      beforeEnter: AuthGuard
     },
     {
       path: '/fox',

@@ -93,7 +93,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      console.log('save')
+      console.log('save', this._data)
     }
   }
 }
