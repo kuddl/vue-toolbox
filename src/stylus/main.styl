@@ -12,3 +12,13 @@ $theme := {
 }
 
 @import '../../node_modules/vuetify/src/stylus/main'
+
+.custom-loader
+  animation buttonLoader 1s infinite
+  display flex
+
+@keyframes buttonLoader
+  from
+    transform rotate(0)
+  to
+    transform rotate(360deg)

@@ -9,7 +9,13 @@
           md10
           offset-md1>
           <v-btn class="primary"
-            @click.stop="action='Go'">Go</v-btn>
+            :loading="true"
+            @click.stop="action='Go'"> Home
+            <span slot="loader"
+              class="custom-loader">
+              <v-icon light>cached</v-icon>
+            </span>
+          </v-btn>
           <v-btn class="secondary"
             @click.stop="action='Stop'">Stop</v-btn>
           <v-carousel class="mt-3 mb-3">
@@ -29,8 +35,8 @@
             <v-card-title primary-title>
               <div>
                 <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-                <div>Located two hours south of Sydney in the
-                  <br>Southern Highlands of New South Wales, ... </div>
+                <div>Located two hours south of Sydney in the <br>Southern
+                  Highlands of New South Wales, ... </div>
               </div>
             </v-card-title>
             <v-card-actions>
