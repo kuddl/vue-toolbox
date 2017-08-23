@@ -4,7 +4,7 @@
       v-model="sideNav">
       <v-list>
         <v-list-tile to="/">
-          <v-list-tile-content class="text-xs-center subheading">Home</v-list-tile-content>
+          <v-list-tile-content class="text-xs-center subheading">Scrummaster Tools</v-list-tile-content>
         </v-list-tile>
         <v-divider></v-divider>
         <v-list-tile v-for="{title, uri, icon} in filteredNavigation"
@@ -26,16 +26,20 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar dark
+      dense
       class="primary">
       <v-toolbar-side-icon @click.stop="sideNav = !sideNav"
         class="--hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/"
           tag="span"
-          style="cursor: pointer"> Tools </router-link>
+          style="cursor: pointer"> Scrummaster Tools </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
+        <v-btn flat
+          to="#"
+          class=""> {{userName}} </v-btn>
         <v-btn flat
           v-for="{title, uri, icon} in filteredNavigation"
           :to="uri"
@@ -63,6 +67,9 @@ export default {
     ]),
     userIsAuthenticated () {
       return this.user !== null && this.user !== undefined
+    },
+    userName () {
+      return 'User Name'
     },
     filteredNavigation () {
       return this.navigation.filter(element => {

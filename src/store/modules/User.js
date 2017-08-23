@@ -22,8 +22,7 @@ const actions = {
       .then(
       user => {
         const newUser = {
-          id: user.uid,
-          registeredMeetups: []
+          id: user.uid
         }
         commit('setLoading', false)
         commit('setUser', newUser)
@@ -44,8 +43,7 @@ const actions = {
       .then(
       user => {
         const newUser = {
-          id: user.uid,
-          registeredMeetups: []
+          id: user.uid
         }
         commit('setLoading', false)
         commit('setUser', newUser)

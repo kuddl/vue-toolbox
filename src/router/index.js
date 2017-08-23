@@ -25,7 +25,8 @@ const router = new Router({
     {
       path: '/fox',
       name: 'Fox',
-      component: Fox
+      component: Fox,
+      beforeEnter: AuthGuard
     },
     {
       path: '/sign_in',

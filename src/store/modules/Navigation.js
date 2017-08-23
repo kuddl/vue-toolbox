@@ -1,9 +1,9 @@
 const state = {
   navigation: [
-    { title: 'Broz', uri: '/broz', icon: 'search' },
-    { title: 'Fox', uri: '/fox', icon: 'favorite' },
-    { hideOnLoggedIn: true, title: 'Sign In', uri: '/sign_in', icon: 'more_vert' },
-    { hideOnLoggedIn: true, title: 'Register', uri: '/register', icon: 'more_vert' }
+    { hideOnLoggedIn: false, title: 'Broz', uri: '/broz', icon: 'fingerprint' },
+    { hideOnLoggedIn: false, title: 'Fox', uri: '/fox', icon: 'toys' },
+    { hideOnLoggedIn: true, title: 'Sign In', uri: '/sign_in', icon: 'lock_open' },
+    { hideOnLoggedIn: true, title: 'Register', uri: '/register', icon: 'face' }
   ]
 }
 

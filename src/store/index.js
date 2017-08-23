@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import Navigation from './modules/Navigation'
-import Meetups from './modules/Meetups'
+import Cfd from './modules/Cfd'
 import User from './modules/User'
 
 Vue.use(Vuex)
@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
   // strict: process.env.NODE_ENV !== 'production',
   modules: {
     navigation: Navigation,
-    meetups: Meetups,
+    cfd: Cfd,
     user: User
   },
   state: {
@@ -35,11 +35,11 @@ export const store = new Vuex.Store({
     setError (state, payload) {
       state.error = payload
     },
-    setLoading (state, payload) {
-      state.loading = payload
-    },
     clearError (state) {
       state.error = null
+    },
+    setLoading (state, payload) {
+      state.loading = payload
     }
   }
 })
